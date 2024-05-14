@@ -12,7 +12,7 @@ phases:
     commands:
       - echo Log in to Amazon ECR...
       - aws --version
-      - aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 471112591363.dkr.ecr.ap-southeast-1.amazonaws.com
+      - docker login -u AWS -p $(aws ecr get-login-password --region ap-southeast-1) 471112591363.dkr.ecr.ap-southeast-1.amazonaws.com/web3-wallet-backend
       - REPOSITORY_URI=471112591363.dkr.ecr.ap-southeast-1.amazonaws.com/web3-wallet-backend
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}

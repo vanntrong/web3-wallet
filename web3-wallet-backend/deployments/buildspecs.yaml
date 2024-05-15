@@ -33,4 +33,4 @@ phases:
       - echo write definitions file...
       - printf '[{"name":"web3-wallet-backend","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
-  files: imagedefinitions.json
+  files: ./web3-wallet-backend/imagedefinitions.json
